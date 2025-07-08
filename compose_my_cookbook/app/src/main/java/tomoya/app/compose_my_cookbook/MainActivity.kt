@@ -11,37 +11,29 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import tomoya.app.compose_my_cookbook.ui.theme.Compose_my_cookbookTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             Compose_my_cookbookTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                MyApp()
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Compose_my_cookbookTheme {
-        Greeting("Android")
+fun MyApp(modifier: Modifier = Modifier) {
+    val navController = rememberNavController()
+    NavHost(navController = navController, startDestination = "homePage"){
+        composable("homePage") { HomePage(onClick = {navController.navigate(it.route)}) }
+        DemoData.uiList.forEach { item ->
+            composable(item.route) { item.page((navController)) }
+        }
     }
 }
