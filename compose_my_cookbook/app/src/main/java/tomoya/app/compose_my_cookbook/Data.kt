@@ -137,5 +137,6 @@ data class RouteItem(
 
      val uiList = listOf<RouteItem>(
          RouteItem("Vertical List", "verticalList",{navController -> VerticalListPage(navController)}),
+         RouteItem("Horizontal List", "horizontalList",{navController -> HorizontalListPage(navController)}),
      )
 }

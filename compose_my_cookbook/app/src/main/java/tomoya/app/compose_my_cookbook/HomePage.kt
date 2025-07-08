@@ -26,10 +26,6 @@ fun HomePage(modifier: Modifier = Modifier,onClick: (RouteItem) -> Unit) {
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer,
-                    titleContentColor = MaterialTheme.colorScheme.primary
-                ),
                 title = {
                     Text("Compose CookBook")
                 },

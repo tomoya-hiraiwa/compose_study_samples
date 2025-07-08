@@ -26,7 +26,7 @@ import tomoya.app.compose_my_cookbook.ui.theme.Compose_my_cookbookTheme
 fun HorizontalListItem(item: Item, modifier: Modifier = Modifier) {
     Card(
         shape = MaterialTheme.shapes.medium,
-        modifier = modifier.size(280.dp, 200.dp),
+        modifier = modifier.size(280.dp, 400.dp),
         elevation = CardDefaults.cardElevation(2.dp)
     ) {
         Column(modifier = Modifier.clickable(onClick = {})) {
@@ -35,7 +35,7 @@ fun HorizontalListItem(item: Item, modifier: Modifier = Modifier) {
                 contentScale = ContentScale.Crop,
                 contentDescription = null,
                 modifier = Modifier
-                    .height(100.dp)
+                    .height(200.dp)
                     .fillMaxWidth()
             )
             Column(modifier = Modifier.padding(16.dp)) {
