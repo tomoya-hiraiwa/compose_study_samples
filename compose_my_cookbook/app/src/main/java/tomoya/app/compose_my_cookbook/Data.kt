@@ -1,8 +1,11 @@
 package tomoya.app.compose_my_cookbook
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
+import tomoya.app.compose_my_cookbook.grid_list.GridListItem
+import tomoya.app.compose_my_cookbook.grid_list.GridListPage
+import tomoya.app.compose_my_cookbook.horizontal_list.HorizontalListPage
+import tomoya.app.compose_my_cookbook.vertical_list.VerticalListPage
 
 typealias NavComposable = @Composable (NavController) -> Unit
 
@@ -16,7 +19,6 @@ data class Item(
 )
 
 
-
 data class RouteItem(
     val name: String,
     val route: String,
@@ -24,9 +26,7 @@ data class RouteItem(
 )
 
 
-
-
- object DemoData{
+object DemoData {
     val item =
         Item(
             1,
@@ -135,8 +135,16 @@ data class RouteItem(
             )
         )
 
-     val uiList = listOf<RouteItem>(
-         RouteItem("Vertical List", "verticalList",{navController -> VerticalListPage(navController)}),
-         RouteItem("Horizontal List", "horizontalList",{navController -> HorizontalListPage(navController)}),
-     )
+    val uiList = listOf<RouteItem>(
+        RouteItem(
+            "Vertical List",
+            "verticalList",
+            { navController -> VerticalListPage(navController) }),
+        RouteItem("Horizontal List", "horizontalList", { navController ->
+            HorizontalListPage(
+                navController
+            )
+        }),
+        RouteItem("Grid List", "gridList", { navController -> GridListPage(navController) })
+    )
 }

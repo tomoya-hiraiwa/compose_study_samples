@@ -1,4 +1,4 @@
-package tomoya.app.compose_my_cookbook
+package tomoya.app.compose_my_cookbook.vertical_list
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -19,6 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import tomoya.app.compose_my_cookbook.DemoData
 import tomoya.app.compose_my_cookbook.ui.theme.Compose_my_cookbookTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -45,7 +46,7 @@ fun VerticalListPage(navController: NavController,modifier: Modifier = Modifier)
 @Composable
 fun VerticalListView(modifier: Modifier = Modifier) {
     LazyColumn(modifier = modifier) {
-        items(DemoData.itemList){item ->
+        items(DemoData.itemList){ item ->
             if ((item.id % 3) == 0){
                 SmallVerticalListItem(item = item)
             }

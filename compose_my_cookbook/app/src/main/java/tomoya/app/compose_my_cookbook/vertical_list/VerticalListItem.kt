@@ -1,6 +1,5 @@
-package tomoya.app.compose_my_cookbook
+package tomoya.app.compose_my_cookbook.vertical_list
 
-import android.widget.Space
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -28,6 +27,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import tomoya.app.compose_my_cookbook.DemoData
+import tomoya.app.compose_my_cookbook.Item
 import tomoya.app.compose_my_cookbook.ui.theme.Compose_my_cookbookTheme
 
 @Composable
@@ -69,7 +70,7 @@ fun SmallVerticalListItem(item: Item, modifier: Modifier = Modifier){
 }
 
 @Composable
-fun ItemImage(item: Item,modifier: Modifier = Modifier) {
+fun ItemImage(item: Item, modifier: Modifier = Modifier) {
     Image(
         painter = painterResource(item.imageId),
         modifier = modifier
